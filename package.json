@@ -1,7 +1,15 @@
 {
-  "name": "@gkd-kit/subscription-template",
-  "version": "0.0.0",
+  "name": "gkd-rules",
+  "version": "1.0.0",
   "type": "module",
+  "gkd": {
+    "outDir": "dist",
+    "file": "gkd.json5",
+    "versionFile": "gkd.version.json5",
+    "changelog": "CHANGELOG.md",
+    "README.md": "README.md"
+  },
+  "main": "./dist/gkd.json5",
   "scripts": {
     "postinstall": "simple-git-hooks",
     "format": "prettier --cache --write ./**/*.{js,cjs,mjs,ts,jsx,tsx,json}",
@@ -14,9 +22,9 @@
     "pre-push": "pnpm run check"
   },
   "lint-staged": {
-    "*.{js,cjs,mjs,ts,jsx,tsx}": [
-      "eslint --cache --fix",
-      "prettier --cache --write"
+    "*.{js,cjs,mjs,ts,cts,mts,jsx,tsx}": [
+      "prettier --cache --write",
+      "eslint --cache --fix"
     ],
     "*.json": [
       "prettier --cache --write"
@@ -51,6 +59,7 @@
     "pnpm": "10.14.0"
   },
   "packageManager": "pnpm@10.14.0",
+  "engineStrict": true,
   "engines": {
     "node": ">=22"
   }
