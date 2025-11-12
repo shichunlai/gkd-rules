@@ -1,4 +1,4 @@
-# mrlctate/gkd-mrlc
+# shichunlai/gkd-rules
 
 ## 声明
 
@@ -16,12 +16,12 @@ npmmirror源（国内源）
 稳定版
 
 ```txt
-https://registry.npmmirror.com/gkd-mrlc/latest/files/dist/gkd.json5
+https://registry.npmmirror.com/gkd-rules/latest/files/dist/gkd.json5
 ```
 Beta
 
 ```txt
-https://registry.npmmirror.com/gkd-mrlc/latest/files/dist/beta-gkd.json5
+https://registry.npmmirror.com/gkd-rules/latest/files/dist/beta-gkd.json5
 ```
 
 ##
