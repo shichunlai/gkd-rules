@@ -5,22 +5,6 @@ export default defineGkdApp({
   name: '快手极速版',
   groups: [
     {
-      key: 0,
-      name: '开屏广告',
-      matchTime: 10000,
-      actionMaximum: 1,
-      resetMatch: 'app',
-      priorityTime: 10000,
-      rules: [
-        {
-          fastQuery: true,
-          matches: '[vid="splash_skip_text"]',
-          exampleUrls: 'https://e.gkd.li/5d393b9b-c327-4429-9759-8c18a097453a',
-          snapshotUrls: 'https://i.gkd.li/i/17631261',
-        },
-      ],
-    },
-    {
       key: 2,
       name: '全屏广告-朋友推荐弹窗',
       rules: [
@@ -68,26 +52,6 @@ export default defineGkdApp({
           exampleUrls:
             'https://m.gkd.li/57941037/12059549-21c2-47b7-9acf-ec221cc14f25',
           snapshotUrls: 'https://i.gkd.li/i/15747381',
-        },
-      ],
-    },
-    {
-      key: 5,
-      name: '分段广告-悬浮广告',
-      fastQuery: true,
-      activityIds: 'com.yxcorp.gifshow.HomeActivity',
-      rules: [
-        {
-          key: 0,
-          matches: '[vid="close_pendant"][visibleToUser=true]',
-          exampleUrls: 'https://e.gkd.li/8f56e57f-b2d7-457c-8376-6351568ec14a',
-          snapshotUrls: 'https://i.gkd.li/i/23431963',
-        },
-        {
-          preKeys: [0],
-          matches: '[text="确定"][visibleToUser=true]',
-          exampleUrls: 'https://e.gkd.li/89294dbb-4398-4561-91b7-4943ec7c98c7',
-          snapshotUrls: 'https://i.gkd.li/i/23431964',
         },
       ],
     },
