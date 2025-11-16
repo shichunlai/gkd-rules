@@ -5,6 +5,34 @@ export default defineGkdApp({
   name: '知乎',
   groups: [
     {
+      key: -1,
+      name: '开屏广告',
+      matchTime: 10000,
+      actionMaximum: 1,
+      resetMatch: 'app',
+      priorityTime: 10000,
+      rules: [
+        {
+          fastQuery: true,
+          excludeActivityIds: [
+            '.app.SearchActivity',
+            '.comment.ui.activity.CommentListActivity',
+          ],
+          matches:
+            '([vid="btn_skip"][visibleToUser=true]) || ([text*="跳过"][text.length<10][visibleToUser=true])',
+          exampleUrls: 'https://e.gkd.li/e129aaa6-bf4f-4455-9242-a6779667d814',
+          snapshotUrls: [
+            'https://i.gkd.li/i/18221451',
+            'https://i.gkd.li/i/22714295',
+          ],
+          excludeSnapshotUrls: [
+            'https://i.gkd.li/i/18221225',
+            'https://i.gkd.li/i/23141429',
+          ],
+        },
+      ],
+    },
+    {
       key: 6,
       name: '分段广告-信息流广告',
       desc: '点击关闭-点击内容不感兴趣',
@@ -49,12 +77,18 @@ export default defineGkdApp({
         },
         {
           key: 3,
-          activityIds: ['.app.ui.activity.MainActivity', '.ContentActivity'],
+          activityIds: [
+            '.app.ui.activity.MainActivity',
+            '.ContentActivity',
+            '.feature.short_container_feature.ui.ShortContainerHostActivity',
+          ],
           matches:
-            '@ViewGroup[clickable=true][childCount=1] <4 ViewGroup -(2,3) ViewGroup[childCount>1] >(1,2) [text*="广告"]',
+            '@ViewGroup[clickable=true][childCount=1] <(2,4) ViewGroup -(2,3) ViewGroup[childCount>1] >(1,2) [text*="广告"]',
           snapshotUrls: [
             'https://i.gkd.li/i/14192451',
             'https://i.gkd.li/i/18217217',
+            'https://i.gkd.li/i/19591989',
+            'https://i.gkd.li/i/21813914',
           ],
         },
         {
@@ -86,11 +120,12 @@ export default defineGkdApp({
             '.app.ui.activity.MainActivity',
           ],
           matches:
-            '@[clickable=true] >(1,3) [text$="不感兴趣" || text^="屏蔽作者"]',
+            '@[clickable=true] >(1,3) [text$="不感兴趣" || text^="屏蔽作者" || text="不喜欢该内容"]',
           snapshotUrls: [
             'https://i.gkd.li/i/13849689',
             'https://i.gkd.li/i/17237940',
             'https://i.gkd.li/i/17268849',
+            'https://i.gkd.li/i/23431871',
           ],
         },
       ],
@@ -105,9 +140,20 @@ export default defineGkdApp({
       rules: [
         {
           key: 1,
-          activityIds: '.app.ui.activity.MainActivity',
-          matches: ['[text$="内容推送"]', '[vid="btn_close"]'],
-          snapshotUrls: 'https://i.gkd.li/i/18057057',
+          activityIds: [
+            '.app.ui.activity.MainActivity',
+            '.mix.activity.ContentMixProfileActivity',
+            '.app.ui.activity.HostActivity',
+          ],
+          matches: [
+            '[text$="内容推送" || text="开启私信通知"]',
+            '[vid="btn_close"]',
+          ],
+          snapshotUrls: [
+            'https://i.gkd.li/i/18057057',
+            'https://i.gkd.li/i/20647853',
+            'https://i.gkd.li/i/22762314',
+          ],
         },
       ],
     },
@@ -151,16 +197,28 @@ export default defineGkdApp({
     },
     {
       key: 13,
-      name: '局部广告-搜索栏上方广告',
+      name: '局部广告-卡片广告',
       desc: '点击关闭',
       rules: [
         {
+          key: 0,
+          name: '搜索栏上方广告',
           fastQuery: true,
           activityIds: 'com.zhihu.android.app.ui.activity.MainActivity',
           matches: ['[vid="ad_container"]', '[vid="img_close_focus"]'],
           exampleUrls:
             'https://m.gkd.li/101449500/11c26ab8-0b01-4345-8ea8-d4e97233b723',
           snapshotUrls: 'https://i.gkd.li/i/14156887',
+        },
+        {
+          key: 1,
+          name: '评论区广告',
+          fastQuery: true,
+          activityIds: '.comment.ui.activity.CommentListActivity',
+          matches:
+            '@ViewGroup[childCount=1][clickable=true][visibleToUser=true][getChild(0).name$="SvgView"] - [text="广告"]',
+          exampleUrls: 'https://e.gkd.li/d81b6bc4-f4f9-466d-8edb-7af27c707ca5',
+          snapshotUrls: 'https://i.gkd.li/i/20711018',
         },
       ],
     },
@@ -195,6 +253,7 @@ export default defineGkdApp({
           snapshotUrls: [
             'https://i.gkd.li/i/14391614',
             'https://i.gkd.li/i/15282584',
+            'https://i.gkd.li/i/20648888',
           ],
         },
         {
@@ -252,6 +311,40 @@ export default defineGkdApp({
       ],
     },
     {
+      key: 16,
+      name: '更新提示',
+      matchTime: 10000,
+      fastQuery: true,
+      resetMatch: 'app',
+      actionMaximum: 1,
+      activityIds: [
+        '.app.ui.activity.MainActivity',
+        '.feature.short_container_feature.ui.ShortContainerHostActivity',
+      ],
+      rules: [
+        {
+          key: 0,
+          name: '勾选[不再提醒]',
+          matches: 'CheckBox[text="不再提醒"][checked=false][clickable=true]', // checked=false 区别勾选前后
+          exampleUrls:
+            'https://m.gkd.li/57941037/728ea1cd-ca19-4de9-9e7e-eb2a3513f965',
+          snapshotUrls: [
+            'https://i.gkd.li/i/14445502', // 勾选前
+            'https://i.gkd.li/i/14445815', // 勾选后
+          ],
+        },
+        {
+          preKeys: [0],
+          key: 1,
+          name: '点击[取消]',
+          matches: ['[text="去应用市场"]', '[text="取消"]'],
+          exampleUrls:
+            'https://m.gkd.li/57941037/728ea1cd-ca19-4de9-9e7e-eb2a3513f965',
+          snapshotUrls: 'https://i.gkd.li/i/14445502',
+        },
+      ],
+    },
+    {
       key: 17,
       name: '功能类-热榜页自动点击[展开更多]',
       rules: [
@@ -266,7 +359,7 @@ export default defineGkdApp({
       ],
     },
     {
-      key: 101,
+      key: 18,
       name: '功能类-自动展开回答',
       desc: '自动点击展开',
       rules: [
@@ -282,6 +375,22 @@ export default defineGkdApp({
             'https://i.gkd.li/i/12647688',
             'https://i.gkd.li/i/12707687', // 使用 [visibleToUser=true] 进行限定，防止在控件不可见时提前触发规则
           ],
+        },
+      ],
+    },
+    {
+      key: 19,
+      name: '评价提示-评论区氛围评价卡片',
+      desc: '点击关闭',
+      actionMaximum: 1,
+      rules: [
+        {
+          fastQuery: true,
+          activityIds: '.comment.ui.activity.CommentListActivity',
+          matches:
+            '@ViewGroup[clickable=true] - [text^="你对该内容下的评论氛围是否满意"][visibleToUser=true]',
+          exampleUrls: 'https://e.gkd.li/60674332-41a3-4a31-907e-7af6c23182bf',
+          snapshotUrls: 'https://i.gkd.li/i/20473238',
         },
       ],
     },
