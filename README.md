@@ -55,7 +55,7 @@ https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/gkd.json5
 
 ##
 
-当前版本: v7
+当前版本: v8
 
 当前订阅文件已适配 689 个应用，共有 1475 应用规则组，3 全局规则组
 
