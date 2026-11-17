@@ -11,23 +11,9 @@
 
 ## 订阅
 
-> 推荐使用 **npmmirror** 源，国内访问最稳定。如果某个源连不上，可以换另一个。
+> 下面任选一个链接粘贴到 GKD 里导入即可。推荐先用 **jsDelivr**，国内有 CDN 最稳。某个源连不上就换另一个。
 
-### 方案一：npmmirror 源（推荐 · 国内最快）
-
-稳定版
-
-```txt
-https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/gkd.json5
-```
-
-Beta
-
-```txt
-https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/beta-gkd.json5
-```
-
-### 方案二：jsDelivr CDN（备选 · 全球加速）
+### 方案一：jsDelivr CDN（推荐 · 全球加速 · 国内可用）
 
 稳定版
 
@@ -41,7 +27,7 @@ Beta
 https://cdn.jsdelivr.net/gh/shichunlai/gkd-rules@main/dist/beta-gkd.json5
 ```
 
-### 方案三：GitHub Raw（兜底 · 可能被墙）
+### 方案二：GitHub Raw（兜底 · 可能被墙）
 
 稳定版
 
@@ -53,6 +39,20 @@ Beta
 
 ```txt
 https://raw.githubusercontent.com/shichunlai/gkd-rules/main/dist/beta-gkd.json5
+```
+
+### 方案三：npmmirror 源（已发布 npm 包时可用）
+
+稳定版
+
+```txt
+https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/gkd.json5
+```
+
+Beta
+
+```txt
+https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/beta-gkd.json5
 ```
 
 ##
