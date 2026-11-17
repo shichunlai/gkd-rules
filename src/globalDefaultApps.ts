@@ -220,7 +220,11 @@ export const updateBlackListAppIDs = new Set([
 ]);
 
 // 通知提示黑名单
-export const notificationBlackListAppIDs = new Set([...blackListAppIDs]);
+export const notificationBlackListAppIDs = new Set([
+  ...blackListAppIDs,
+  'com.bankcomm.Bankcomm', // 交通银行 通知提示全局规则误触导致指纹登录弹窗无法弹出
+  'com.chinamobile.mcloud', // 中国移动云盘 通知提示全局规则误触导致指纹登录弹窗无法弹出
+]);
 
 // 全局规则白名单（由于系统应用默认禁用全局规则，所以对系统应用启用白名单模式）
 
@@ -238,7 +242,6 @@ export const openAdWhiteListAppIDs = new Set([
   'com.heytap.themestore', // oppo主题商店
   'com.bbk.theme', // vivo主题商店
   'com.huawei.android.thememanager', // 华为主题
-  'com.heytap.themestore', // oppo主题商店
 ]);
 
 // 更新提示白名单
