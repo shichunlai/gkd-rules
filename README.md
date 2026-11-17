@@ -11,17 +11,48 @@
 
 ## 订阅
 
-npmmirror源（国内源）
+> 推荐使用 **npmmirror** 源，国内访问最稳定。如果某个源连不上，可以换另一个。
+
+### 方案一：npmmirror 源（推荐 · 国内最快）
 
 稳定版
 
 ```txt
-https://registry.npmmirror.com/gkd-rules/latest/files/dist/gkd.json5
+https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/gkd.json5
 ```
+
 Beta
 
 ```txt
-https://registry.npmmirror.com/gkd-rules/latest/files/dist/beta-gkd.json5
+https://registry.npmmirror.com/gkd-rules-scl/latest/files/dist/beta-gkd.json5
+```
+
+### 方案二：jsDelivr CDN（备选 · 全球加速）
+
+稳定版
+
+```txt
+https://cdn.jsdelivr.net/gh/shichunlai/gkd-rules@main/dist/gkd.json5
+```
+
+Beta
+
+```txt
+https://cdn.jsdelivr.net/gh/shichunlai/gkd-rules@main/dist/beta-gkd.json5
+```
+
+### 方案三：GitHub Raw（兜底 · 可能被墙）
+
+稳定版
+
+```txt
+https://raw.githubusercontent.com/shichunlai/gkd-rules/main/dist/gkd.json5
+```
+
+Beta
+
+```txt
+https://raw.githubusercontent.com/shichunlai/gkd-rules/main/dist/beta-gkd.json5
 ```
 
 ##
