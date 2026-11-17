@@ -238,7 +238,6 @@ export const openAdWhiteListAppIDs = new Set([
   'com.heytap.themestore', // oppo主题商店
   'com.bbk.theme', // vivo主题商店
   'com.huawei.android.thememanager', // 华为主题
-  'com.heytap.themestore', // oppo主题商店
 ]);
 
 // 更新提示白名单

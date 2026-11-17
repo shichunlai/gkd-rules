@@ -15,8 +15,6 @@
 
 ### 方案一：国内 GitHub 镜像（最稳 · 推荐先试）
 
-稳定版
-
 ```txt
 https://raw.gitmirror.com/shichunlai/gkd-rules/main/dist/gkd.json5
 ```
